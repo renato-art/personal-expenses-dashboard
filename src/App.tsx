@@ -24,38 +24,50 @@ class App extends Component<{}, {entries: Entry[], setEntries: (newEntry: Entry)
   }
   render () {
     return (
-      <h1>
-        Hello world! I am using React
+      <main>
         <RegistryContext.Provider value={this.state}>
           <Content/>
         </RegistryContext.Provider>
-      </h1>
+      </main>
     )
   } 
 }
 
 const Content = () => {
   return (
-    <div>
-      <RegistryContext.Consumer>
-        {({ entries, setEntries }) => (
-          <div>
-            {entries.map((entry) => (
-              <div className="entryCard-container">
-                <h2>{entry.title}</h2>
-                <p>{entry.value}</p>
-              </div>
-            ))}
-            <button onClick={() => setEntries({
-              title: "Test",
-              value: Math.random()*1000,
-              category: "Random",
-              createdOn: new Date()
-            })}>Add</button>
-          </div>
-          
-        )}
-      </RegistryContext.Consumer>
+    <div className="content-container">
+      <section className="activity-container">
+        <header className="activity-header">
+          <h2 className="activity-header-title"><b>Activity</b></h2>
+          <select className="activity-header-selector">
+            <option value="all">All Activity</option>
+          </select>
+        </header>
+        <RegistryContext.Consumer>
+          {({ entries, setEntries }) => (
+            <div>
+              {entries.sort((firstEntry, secondEntry) => {
+                return secondEntry.createdOn.getTime() - firstEntry.createdOn.getTime()
+              }).map((entry) => (
+                <div className="entryCard-container">
+                  <h2>{entry.id}</h2>
+                  <h3>{entry.createdOn.toLocaleDateString()}</h3>
+                  <p>{entry.title}</p>
+                  <h3>{entry.value}</h3>
+                </div>
+              ))}
+              <button onClick={() => setEntries({
+                id: `#${Math.round(Math.random()*10000)}`,
+                title: "Test",
+                value: Math.round(Math.random()*1000),
+                category: "Random",
+                createdOn: new Date()
+              })}>Add</button>
+            </div>
+            
+          )}
+        </RegistryContext.Consumer>
+      </section>
     </div>
   )
 }

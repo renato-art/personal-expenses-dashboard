@@ -1,6 +1,7 @@
 import { createContext, useState } from "react"
 
 export interface Entry {
+    id: string
     title: string
     value: number
     category: string
@@ -9,6 +10,7 @@ export interface Entry {
 
 export let entries: Entry[] = []
 const defaultEntry: Entry = {
+    id: "#0001",
     title: "Supermarket",
     value: 200,
     category: "Alimentation",

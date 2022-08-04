@@ -1,8 +1,36 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.activity-container {
+    margin: 20px;
+    padding: 15px;
+    width: 40vw;
+    background-color: #f1f2f6;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px -2px rgba(0, 0, 0, 0.25)
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.activity-header-selector {
+    border: 0px;
+    background-color: #ced6e0;
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 7.5px;
 }
 
 .entryCard-container {
-    border: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
