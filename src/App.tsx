@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { RegistryContext, entries, Entry } from "./hooks/registry"
 
+import "./App.css"
+
 class App extends Component<{}, {entries: Entry[], setEntries: (newEntry: Entry) => void}> {
   setEntries: (newEntry: Entry) => void
 
