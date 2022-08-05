@@ -50,6 +50,10 @@ const config: Configuration = {
           },
         ],
       },
+      {
+        test: /\.js$/,
+        loader: 'ify-loader'
+      },
     ],
   },
   plugins: [
