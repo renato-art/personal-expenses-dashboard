@@ -6,7 +6,12 @@
 
 .content-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+}
+
+.first-level-container {
+    display: flex;
 }
 
 .activity-container {
@@ -91,6 +96,107 @@
     display: table;
     width: 12.5%;
     text-align: right;
+}
+
+.total-registries-histogram-container {
+    margin: 20px;
+    padding: 15px;
+    width: 30vw;
+    height: 100%;
+    background-color: #FBFCFC;
+    border-radius: 10px;
+    box-shadow: 1px 1px 12px -4px rgba(0, 0, 0, 0.25);
+}
+
+.total-registries-histogram-header-title-and-open-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 112px;
+}
+
+.total-registries-histogram-header-open-view, 
+.total-registries-histogram-header-more-view {
+    width: 30px;
+    transition: 0.4s;
+}
+
+.total-registries-histogram-header-open-view:hover, 
+.total-registries-histogram-header-more-view:hover {
+    transform: scale(1.1);
+}
+
+.total-registries-histogram-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-registries-histogram-bar {
+    display: flex;
+    flex-direction: column;
+    width: 8%;
+    height: 250px;
+    background-color: #ECF0F1;
+}
+
+.total-registries-histogram-bar-first {
+    height: var(--first-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-second {
+    height: var(--second-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-third {
+    height: var(--third-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-fourth {
+    height: var(--fourth-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-fifth {
+    height: var(--fifth-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-sixth {
+    height: var(--sixth-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-seventh {
+    height: var(--seventh-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-eigth {
+    height: var(--eigth-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-ninth {
+    height: var(--ninth-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
+}
+
+.total-registries-histogram-bar-tenth {
+    height: var(--tenth-fill);
+    background-color: #2ECC71;
+    margin-top: auto;
 }
 
 .newEntry-form-container {
