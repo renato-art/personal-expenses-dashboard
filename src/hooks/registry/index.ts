@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, FormEvent } from "react"
 
 export interface Entry {
     id: string
@@ -23,5 +23,13 @@ entries.push(defaultEntry)
 
 export const RegistryContext = createContext({
     entries,
-    setEntries: (newEntry: Entry) => {}
+    setEntries: () => {},
+    setNewEntry: (event: FormEvent<HTMLInputElement>) => {},
+    entry: {
+        id: "",
+        title: "",
+        category: "",
+        value: 0,
+        createdOn: new Date()
+    }
 })
