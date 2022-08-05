@@ -40,8 +40,8 @@
     "webpack-dev-server": "^4.9.3"
   },
   "dependencies": {
-    "plotly.js-dist": "^2.13.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "stream": "^0.0.2"
   }
 }

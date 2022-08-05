@@ -6,7 +6,10 @@
         "target": "es2019",
         "strictNullChecks": true,
         "esModuleInterop": true,
-        "allowJs": true
+        "allowJs": true,
+        "typeRoots": [
+            "./node_modules/@types/**"
+        ]
     },
-    "include": ["src/*", "src/@types/custom.d.ts"],
+    "include": ["src/", "src/@types/custom.d.ts"],
 }

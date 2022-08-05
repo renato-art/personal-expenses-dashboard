@@ -2,6 +2,7 @@ import React, { Component, FormEvent } from "react"
 import { RegistryContext, entries, Entry } from "./hooks/registry"
 import { Activity } from "./components/dashboard-components/activity"
 import { NewEntryForm } from "./components/utils/newEntry"
+import { Histogram } from "./components/dashboard-components/histogram"
 
 import "./App.css"
 import openInNew from "./assets/icons/open_in_new.svg"
@@ -12,7 +13,7 @@ class App extends Component<{}, { entries: Entry[], setEntries: () => void, setN
   setNewEntry: (event: FormEvent<HTMLInputElement>) => void
   root = document.documentElement
 
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.setEntries = () => {
@@ -95,50 +96,16 @@ const Content = ({ entries }) => {
   return (
     <div className="content-container">
       <div className="first-level-container">
-        <section className="total-registries-histogram-container">
+        <Histogram />
+        <section className="registry-history-line-graph-container">
           <header className="activity-header">
             <div className="total-registries-histogram-header-title-and-open-view">
-              <h2 className="activity-header-title"><b>Entries</b></h2>
+              <h2 className="activity-header-title"><b>History</b></h2>
               <img className="total-registries-histogram-header-open-view" src={openInNew} />
             </div>
             <img className="total-registries-histogram-header-more-view" src={moreH} />
           </header>
-          <RegistryContext.Consumer>
-            {({ entries }) => (
-              <div className="total-registries-histogram-body">
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-first" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-second" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-third" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-fourth" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-fifth" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-sixth" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-seventh" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-eigth" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-ninth" />
-                </div>
-                <div className="total-registries-histogram-bar">
-                  <div className="total-registries-histogram-bar-tenth" />
-                </div>
-              </div>
-            )}
-          </RegistryContext.Consumer>
+          <div id="graph_anchor"></div>
         </section>
         <NewEntryForm />
       </div>
