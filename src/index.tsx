@@ -1,6 +1,10 @@
-import React from 'react'
-import  { render }  from 'react-dom'
+import React, { StrictMode } from 'react'
+import  { createRoot }  from 'react-dom/client'
 import App from './App'
 
-const container = document.getElementById('root') as HTMLElement
-render(<App/>, container)
+const container = createRoot(document.getElementById('root') as HTMLElement)
+container.render(
+    <StrictMode>
+        <App />
+    </StrictMode>
+)

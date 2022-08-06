@@ -1,4 +1,4 @@
-import React, { Component, FormEvent } from "react"
+import React, { Component, FormEvent, ReactNode } from "react"
 import { RegistryContext, entries, Entry } from "./hooks/registry"
 import { Activity } from "./components/dashboard-components/activity"
 import { NewEntryForm } from "./components/utils/newEntry"
@@ -7,13 +7,16 @@ import { Histogram } from "./components/dashboard-components/histogram"
 import "./App.css"
 import openInNew from "./assets/icons/open_in_new.svg"
 import moreH from "./assets/icons/more_h.svg"
+import { Chart, ChartItem, registerables } from "chart.js"
+
+Chart.register(...registerables)
 
 class App extends Component<{}, { entries: Entry[], setEntries: () => void, setNewEntry: (event: FormEvent<HTMLInputElement>) => void, entry: any }> {
   setEntries: () => void
   setNewEntry: (event: FormEvent<HTMLInputElement>) => void
   root = document.documentElement
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.setEntries = () => {
@@ -92,6 +95,75 @@ class App extends Component<{}, { entries: Entry[], setEntries: () => void, setN
   }
 }
 
+const labels = [1, 2, 3, 4, 5, 6, 7]
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First Dataset',
+    data: [65, 59, 80, 81, 56, 55, 40],
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }]
+}
+
+class Demo extends Component {
+  graph
+  componentDidMount() {
+    this.renderGraph()
+  }
+  componentDidUpdate() {
+    this.renderGraph()
+  }
+  buildGraph() {
+    const stackedLine = new Chart('graph-anchor', {
+      type: 'line',
+      data: data,
+      options: {
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            grid: {
+              display: false,
+              drawBorder: false
+            }
+          },
+          y: {
+            suggestedMin: 40,
+            suggestedMax: 90,
+            ticks: {
+              stepSize: 20
+            },
+            grid: {
+              drawBorder: false
+            }
+          }
+        }
+      }
+    })
+    return stackedLine
+  }
+  renderGraph() {
+    if (!this.graph) {
+      this.graph = this.buildGraph()
+    } else {
+      this.graph.destroy()
+      this.graph = this.buildGraph()
+    }
+  }
+  render(): ReactNode {
+    return (
+      <canvas id="graph-anchor">
+      </canvas>
+    )
+  }
+}
+
 const Content = ({ entries }) => {
   return (
     <div className="content-container">
@@ -105,7 +177,9 @@ const Content = ({ entries }) => {
             </div>
             <img className="total-registries-histogram-header-more-view" src={moreH} />
           </header>
-          <div id="graph_anchor"></div>
+          <div className="canvas-wrapper">
+            <Demo />
+          </div>
         </section>
         <NewEntryForm />
       </div>
