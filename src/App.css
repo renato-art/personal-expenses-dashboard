@@ -10,8 +10,45 @@
     justify-content: space-between;
 }
 
+.content-header-container {
+    margin: 20px 20px 0px 20px;
+}
+
+.content-header-info-date {
+    margin-top: 10px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.content-header-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.general-view-container {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 150px;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 1px 1px 12px 6px rgba(0, 0, 0, 0.25);
+}
+
 .first-level-container {
     display: flex;
+}
+
+.second-level-container {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+}
+
+.third-level-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .activity-container {
@@ -99,10 +136,10 @@
 }
 
 .total-registries-histogram-container {
-    margin: 20px;
+    margin-right: 10px;
     padding: 15px;
-    width: 30vw;
-    height: 295px;
+    width: 50%;
+    height: 335px;
     background-color: #FBFCFC;
     border-radius: 10px;
     box-shadow: 1px 1px 12px -4px rgba(0, 0, 0, 0.25);
@@ -211,36 +248,38 @@
 }
 
 .registry-history-line-graph-container {
-    margin: 20px;
+    margin-left: 10px;
     padding: 15px;
-    width: 30vw;
-    height: 295px;
+    width: 50%;
+    height: 335px;
     background-color: #FBFCFC;
     border-radius: 10px;
     box-shadow: 1px 1px 12px -4px rgba(0, 0, 0, 0.25);
 }
 
 .canvas-wrapper {
-    height: 250px;
+    height: 290px;
 }
 
 .newEntry-form-container {
     margin: 20px;
     padding: 15px;
-    width: 345px;
-    height: 100%;
-    background-color: #FBFCFC;
+    width: 20vw;
+    height: 505px;
+    background-color: #32776B;
     border-radius: 10px;
-    box-shadow: 1px 1px 12px -4px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.25);
 }
 
 .newEntry-form-content {
+    color: #FFF;
     display: flex;
     width: 100%;
     flex-direction: column;
 }
 
 .newEntry-form-content input, button {
+    color: #FFF;
     margin-bottom: 20px;
     margin-top: 5px;
     height: 30px;
@@ -250,15 +289,20 @@
     box-shadow: 1px 1px 12px -6px rgba(0, 0, 0, 0.25);
 }
 
+.newEntry-form-content input {
+    background-color: #ecf0f147;
+}
+
 .newEntry-form-content button {
-    background-color: #ECF0F1;
+    background-color: #ecf0f184;
+    height: 40px;
     font-size: 0.8rem;
     font-weight: 700;
     transition: 0.3s;
 }
 
 .newEntry-form-content button:hover {
-    background-color: #D0D3D4;
+    background-color: #d0d3d4ec;
     font-size: 0.84rem;
     transform: scale(1.02);
 }
